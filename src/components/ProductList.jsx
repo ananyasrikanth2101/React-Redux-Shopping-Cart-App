@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../features/cart/cartSlice";
+import { addToCart, setProducts } from "../features/cart/cartSlice";
+import productsData from "../data/products.json";
 
 const ProductList = () => {
-  const products = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.cart.products);
+
+  useEffect(() => {
+    dispatch(setProducts(productsData.products));
+  }, [dispatch]);
 
   return (
     <div className="row">

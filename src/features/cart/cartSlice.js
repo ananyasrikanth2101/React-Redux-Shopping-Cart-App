@@ -1,35 +1,53 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = {
+  products: [],
+  cart: [],
+};
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart(state, action) {
-      const item = state.find((product) => product.id === action.payload.id);
-      if (item) {
-        item.quantity += 1;
+    setProducts: (state, action) => {
+      state.products = action.payload;
+    },
+    addToCart: (state, action) => {
+      const product = action.payload;
+      const existingProduct = state.cart.find((item) => item.id === product.id);
+      if (existingProduct) {
+        existingProduct.quantity += 1;
       } else {
-        state.push({ ...action.payload, quantity: 1 });
+        state.cart.push({ ...product, quantity: 1 });
       }
     },
-    removeFromCart(state, action) {
-      const item = state.find((product) => product.id === action.payload.id);
-      if (item && item.quantity > 0) {
-        item.quantity -= 1;
+    removeFromCart: (state, action) => {
+      const product = action.payload;
+      const existingProduct = state.cart.find((item) => item.id === product.id);
+      if (existingProduct && existingProduct.quantity > 0) {
+        existingProduct.quantity -= 1;
+        if (existingProduct.quantity === 0) {
+          state.cart = state.cart.filter((item) => item.id !== product.id);
+        }
       }
     },
-    removeItemFromCart(state, action) {
-      return state.filter((product) => product.id !== action.payload.id);
+    removeItemFromCart: (state, action) => {
+      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
     },
-    initializeCart(state, action) {
-      return action.payload.map((product) => ({ ...product, quantity: 0 }));
+    initializeCart: (state, action) => {
+      state.cart = action.payload.map((product) => ({
+        ...product,
+        quantity: 0,
+      }));
     },
   },
 });
 
-export const { addToCart, removeFromCart, removeItemFromCart, initializeCart } =
-  cartSlice.actions;
-
+export const {
+  setProducts,
+  addToCart,
+  removeFromCart,
+  removeItemFromCart,
+  initializeCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;

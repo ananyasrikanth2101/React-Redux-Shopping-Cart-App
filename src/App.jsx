@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { initializeCart } from "./features/cart/cartSlice";
+import { setProducts } from "./features/cart/cartSlice";
 import ProductList from "./components/ProductList";
 import Cart from "./components/Cart";
+import "./index.css";
 import productsData from "./data/products.json";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(initializeCart(productsData.products));
+    dispatch(setProducts(productsData.products));
   }, [dispatch]);
 
   return (
