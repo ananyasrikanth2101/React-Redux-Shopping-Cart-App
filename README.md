@@ -15,7 +15,6 @@ This project is a shopping cart application built with React and Redux. It featu
 Demo Link: https://anan-react-redux-shopping-cart-app.netlify.app/
 
 ## Project Structure
-
 src/
 │
 ├── components/
