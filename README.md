@@ -1,8 +1,8 @@
-# React Redux Shopping Cart
+# React Redux Shopping Cart:
 
 This project is a shopping cart application built with React and Redux. It features a product list where users can add products to the cart, view the cart with item quantities and totals, and remove items from the cart. 
 
-## Features
+## Features:
 
 - Product listing with details and images.
 - Add products to the cart.
@@ -14,7 +14,8 @@ This project is a shopping cart application built with React and Redux. It featu
 
 Demo Link: https://anan-react-redux-shopping-cart-app.netlify.app/
 
-## Project Structure
+## Project Structure:
+
 src/
 │
 ├── components/
@@ -33,7 +34,7 @@ src/
 ├── index.js
 └── App.jsx
 
-## Configuration
+## Configuration:
 
 The application is configured to use React and Redux. It includes the following dependencies:
 
