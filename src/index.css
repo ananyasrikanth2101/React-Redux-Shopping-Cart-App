@@ -1,0 +1,62 @@
+body {
+  padding-top: 20px;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.cart {
+  color: rgb(249, 36, 36);
+}
+
+.table td .btn-secondary {
+  margin: 0 5px;
+}
+
+.table td .btn-secondary:focus {
+  box-shadow: none;
+}
+
+h3 {
+  font-weight: bold;
+}
